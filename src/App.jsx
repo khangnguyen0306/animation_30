@@ -7,7 +7,7 @@ import Lenis from 'lenis'
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 gsap.registerPlugin(ScrollTrigger)
-const height = 650
+const height = 620
 
 // Dữ liệu ảnh cho 2 cột
 const leftImages = [
@@ -180,7 +180,7 @@ function App() {
             rotate: '20deg',
             width: '100%',
             display: 'flex',
-            right: '20%',
+            right: '30%',
             position: 'relative',
             gap: '60px',
 
