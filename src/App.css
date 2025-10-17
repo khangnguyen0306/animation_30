@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+.ripple-container {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ripple {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px; /* center on click */
+  margin-top: -8px;  /* center on click */
+  border-radius: 9999px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) inset, 0 1px 0 rgba(255,255,255,0.12);
+  pointer-events: none;
+  will-change: transform, opacity;
+  filter: blur(0.3px);
+}
