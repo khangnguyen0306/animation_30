@@ -1,0 +1,15 @@
+/* BlurSection Component Styles */
+.blur-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blur-text {
+  color: white;
+  font-size: 100px;
+  font-weight: bold;
+  text-transform: uppercase;
+}

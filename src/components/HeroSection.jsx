@@ -3,10 +3,11 @@ import { gsap } from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
+import './HeroSection.css'
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
-const height = 620
+// const height = 620
 
 // Dữ liệu ảnh cho 2 cột
 const leftImages = [
@@ -105,133 +106,56 @@ export default function HeroSection() {
     <section
       ref={pinRef}
       className="pinned-panel"
-      style={{
-        height: '100vh',
-        width: '100%',
-        overflow: 'hidden',
-        position: 'relative',
-      }}
     >
-      <div ref={splitTextRef} style={{ fontSize: '100px', fontWeight: 'bold', width: '100%', display: 'flex', flexDirection: 'column', position: 'absolute', top: '50%', left: '0', transform: 'translateY(-50%)' }}>
+      <div ref={splitTextRef} className="hero-text">
         <div>
-          <span className="split-text" style={{ letterSpacing: '-0.1em' }}>SHAPING </span> <span className="split-text" style={{ color: '#6c757d', letterSpacing: '-0.1em' }}> TOMORROWS </span>
+          <span className="split-text">SHAPING </span> <span className="split-text gray"> TOMORROWS </span>
         </div>
         <div >
-          <span className="split-text" style={{ letterSpacing: '-0.1em' }}> VISION </span><span className="split-text" style={{ color: '#6c757d', letterSpacing: '-0.1em', marginLeft: '0.2em' }}> TODAY. </span>
+          <span className="split-text"> VISION </span><span className="split-text gray"> TODAY. </span>
         </div>
       </div>
 
       <div
         ref={containerRef}
-        style={{
-          height: '4000px',
-          rotate: '20deg',
-          width: '100%',
-          display: 'flex',
-          right: '30%',
-          position: 'relative',
-          gap: '60px',
-        }}>
-        <div
-          className="top-bottom-column"
-          style={{
-            marginTop: '-3800px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '30px',
-            willChange: 'transform',
-          }}
-        >
+        className="hero-container">
+        <div className="top-bottom-column">
           {leftImages.map((image, index) => (
             <div
               key={`left-${index}`}
-              style={{
-                width: '480px',
-                height: height,
-                overflow: 'hidden',
-                boxShadow: '0 25px 50px rgba(0,0,0,0.4)',
-                transformOrigin: 'center center',
-                willChange: 'transform'
-              }}
+              className="image-container"
             >
               <img
                 src={image}
                 alt={`Left image ${index + 1}`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
               />
             </div>
           ))}
         </div>
 
-        <div
-          className="mid-column"
-          style={{
-            marginTop: '1120px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '30px',
-            willChange: 'transform',
-          }}
-        >
+        <div className="mid-column">
           {rightImages.map((image, index) => (
             <div
               key={`mid-${index}`}
-              style={{
-                width: '480px',
-                height: height,
-                overflow: 'hidden',
-                boxShadow: '0 25px 50px rgba(0,0,0,0.4)',
-                transformOrigin: 'center center',
-                willChange: 'transform'
-              }}
+              className="image-container"
             >
               <img
                 src={image}
                 alt={`Mid image ${index + 1}`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
               />
             </div>
           ))}
         </div>
 
-        <div
-          className="top-bottom-column"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '30px',
-            willChange: 'transform',
-            marginTop: '-3800px',
-          }}
-        >
+        <div className="top-bottom-column">
           {rightImages.map((image, index) => (
             <div
               key={`right-${index}`}
-              style={{
-                width: '480px',
-                height: height,
-                overflow: 'hidden',
-                boxShadow: '0 25px 50px rgba(0,0,0,0.4)',
-                transformOrigin: 'center center',
-                willChange: 'transform'
-              }}
+              className="image-container"
             >
               <img
                 src={image}
                 alt={`Right image ${index + 1}`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
               />
             </div>
           ))}

@@ -1,0 +1,71 @@
+/* BookFlip Component Styles */
+.bookflip-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.bookflip-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  perspective: 1600px;
+  perspective-origin: 50% 50%;
+  background: radial-gradient(80% 80% at 50% 50%, #111 0%, #000 100%);
+}
+
+.bookflip-page {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(92vw, 1024px);
+  height: min(92vh, 680px);
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  will-change: transform;
+  z-index: 0;
+}
+
+.bookflip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.bookflip-front {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.bookflip-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #0f1b2d, #14253d);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.page-0 { z-index: 3; }
+.page-1 { z-index: 2; }
+.page-2 { z-index: 1; }
+
+.page-content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 48px;
+}
+
+.page-content h1 {
+  margin: 0 0 12px 0;
+  font-size: clamp(28px, 5vw, 56px);
+}
+
+.page-content p {
+  margin: 0;
+  opacity: 0.75;
+}

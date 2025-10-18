@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment, ContactShadows, Html, useAnimations } from '@react-three/drei';
 import * as THREE from 'three';
 import gsap from 'gsap';
+import './ThreeJSModel.css';
 
 // Phoenix Bird Component
 function Phoenix({ url }) {
@@ -116,14 +117,7 @@ useGLTF.preload('/phoenix_bird/scene.gltf');
 // Main ThreeJS Model Component
 const ThreeJSModel = () => {
   return (
-    <div style={{ 
-      width: '100%', 
-      height: '100vh',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      zIndex: 1
-    }}>
+    <div className="threejs-container">
       <Canvas
         camera={{ 
           position: [0, 0, 3], 
@@ -174,7 +168,7 @@ const ThreeJSModel = () => {
         {/* Phoenix Bird Model */}
         <Suspense fallback={
           <Html center>
-            <div style={{ color: 'white', fontSize: '20px' }}>Loading Phoenix...</div>
+            <div className="loading-fallback">Loading Phoenix...</div>
           </Html>
         }>
           <Phoenix url="/phoenix_bird/scene.gltf" />

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import './WaterRippleSection.css'
 
 export default function WaterRippleSection() {
   const rippleAreaRef = useRef(null)
@@ -59,25 +60,15 @@ export default function WaterRippleSection() {
   }, [])
 
   return (
-    <section style={{ height: '100vh',width: '100%',display: 'flex',justifyContent: 'center',alignItems: 'center' }}>
+    <section className="water-ripple-section">
       <div
         ref={rippleAreaRef}
         className="ripple-container"
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          width: '100%',
-          height: '100%',
-          filter: 'url(#waterRipple)',
-          perspective: '800px',
-          transformStyle: 'preserve-3d',
-          transform: 'rotateX(58deg) translateY(9vh)',
-        }}
       >
         {Array.from({ length: 120 }).map((_, i) => (
           <span key={i} className="ripple"></span>
         ))}
-        <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <svg width="0" height="0" className="water-svg">
           <defs>
             <filter id="waterRipple" x="-50%" y="-50%" width="200%" height="200%">
               <feTurbulence ref={turbRef} type="fractalNoise" baseFrequency="0.01" numOctaves="2" seed="2" />
@@ -85,7 +76,7 @@ export default function WaterRippleSection() {
             </filter>
           </defs>
         </svg>
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(0,0,0,0) 40%)' }}></div>
+        <div className="water-overlay"></div>
       </div>
     </section>
   )

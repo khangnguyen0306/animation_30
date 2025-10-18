@@ -1,0 +1,46 @@
+/* WaterRippleSection Component Styles */
+.water-ripple-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  filter: url(#waterRipple);
+  perspective: 800px;
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) translateY(9vh);
+}
+
+.ripple {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.water-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(0,0,0,0) 40%);
+}
+
+.water-svg {
+  width: 0;
+  height: 0;
+  position: absolute;
+}

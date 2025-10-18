@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import './BlurSection.css'
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
@@ -52,8 +53,8 @@ export default function BlurSection() {
   }, [])
 
   return (
-    <section ref={blurTextRef} style={{ height: '100vh',width: '100%',display: 'flex',justifyContent: 'center',alignItems: 'center' }}>
-      <div style={{color: 'white',fontSize: '100px',fontWeight: 'bold',textTransform: 'uppercase'}}> 
+    <section ref={blurTextRef} className="blur-section">
+      <div className="blur-text"> 
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. 
       </div> 
     </section>
